@@ -1,0 +1,23 @@
+@mixin breakpoint-up {
+   @media screen and (min-width: 1000px) {
+      @content
+   }
+}
+
+@mixin breakpoint-down {
+   @media screen and (max-width: 1000px) {
+      @content
+   }
+}
+
+.hide-for-mobile {
+   @include breakpoint-down() {
+      display: none;
+   }
+}
+
+.hide-for-desktop {
+   @include breakpoint-up() {
+      display: none;
+   }
+}

@@ -1,23 +1,26 @@
-@mixin breakpoint-up {
-   @media screen and (min-width: 1000px) {
+$breakpoints-up: ("medium": "37.5em", "large": "62.5em");
+$breakpoints-down: ("medium": "37.4375em", "large": "62.4375rem");
+
+@mixin breakpoint-up($size) {
+   @media screen and (min-width: map-get($breakpoints-up, $size)) {
       @content
    }
 }
 
-@mixin breakpoint-down {
-   @media screen and (max-width: 1000px) {
+@mixin breakpoint-down($size) {
+   @media screen and (max-width: map-get($breakpoints-down, $size)) {
       @content
    }
 }
 
 .hide-for-mobile {
-   @include breakpoint-down() {
+   @include breakpoint-down(large) {
       display: none;
    }
 }
 
 .hide-for-desktop {
-   @include breakpoint-up() {
+   @include breakpoint-up(large) {
       display: none;
    }
 }

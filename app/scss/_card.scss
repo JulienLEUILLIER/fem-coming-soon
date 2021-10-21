@@ -71,6 +71,10 @@
       margin-bottom: 1.875rem;
       color: $darkGrayishBlue;
 
+      @include breakpoint-up(medium) {
+         padding: 0 3rem;
+      }
+
       @include breakpoint-up(large) {
          margin-bottom: 2.5rem;
          padding: 0;
@@ -95,64 +99,106 @@
          margin-bottom: 3rem;
          padding: 0;
          font-size: 1rem;
-         max-width: 70%;
+         max-width: 80%;
       }
    }
 
    &__form {
       position: relative;
-      width: 80%;
-      max-width: 25rem;
+      max-width: 80%;
       margin: 0 auto;
 
-      @include breakpoint-up(large) {
-         max-width: 28.125em;
-         margin: 0;
-      }
+      &.active {
+         & .card__alert {
+            display: block;
+         }
 
-      & > input {
-         width: 100%;
-         background: transparent;
-         height: 3rem;
-         padding: 0 1.5rem;
-         border-radius: 30px;
-         border: 1px solid hsla(0, 36%, 70%, 50%);
-         color: $desaturatedRed;
-         font-family: 'Josefin Sans', sans-serif;
-
-         &:focus {
-            outline: thin solid $desaturatedRed;
+         &::after {
+            display: block;
          }
       }
 
-      
+      @include breakpoint-up(medium) {
+         height: 3.5rem;
+         max-width: 27.5rem;
+      }
+
+      @include breakpoint-up(large) {
+         margin: 0;
+      }
+
       &::after {
+         display: none;
          content: "";
-         background-image: url('../images/icon-error.svg');
+         background-image: url('../../images/icon-error.svg');
          background-repeat: no-repeat;
          background-position: center;
          width:50px;
          height:50px;
          position: absolute;
+         top: 0;
+         left: 75%;
+         transform: translateX(-75%);
+         z-index: 100;
+
+         @include breakpoint-up(medium) {
+            top: 0.25rem;
+         }
       }
    }
-   &__submit { 
-      background: $secondaryGradient;
+
+   &__input {
+      width: 100%;
+      background: transparent;
       height: 3rem;
-      width: 5.5rem;
-      position: absolute;
-      background-repeat: no-repeat;
+      padding: 0 1.5rem;
       border-radius: 30px;
-      top: 0;
+      border: 1px solid hsla(0, 36%, 70%, 50%);
+      color: $desaturatedRed;
+      font-family: 'Josefin Sans', sans-serif;
+      margin-bottom: 0.625rem;
+
+      @include breakpoint-up(medium) {
+         height: 3.5rem;
+         font-size: 1rem;
+      }
+
+      &:focus {
+         color: black;
+         font-weight: 600;
+         outline: 2px solid rgb(223, 37, 37);
+         outline-offset: -2px;
+      }
+   }
+
+   &__submit { 
+      position: absolute;
       right: 0;
+      background: hsl(0, 74%, 74%);
+      height: 3rem;
+      width: 4rem;
+      border-radius: 30px;
       border: 0;
       box-shadow: 0px 10px 20px 0px hsla(0, 36%, 70%, 60%);
       cursor: pointer;
       transition: all 0.3s;
 
-      &:hover {
-         opacity: 0.6; 
-         box-shadow: 0px 10px 20px 5px hsla(0, 36%, 70%, 100%);
+      @include breakpoint-up(medium) {
+         height: 3.5rem;
+         width: 5.5rem;
       }
+
+      &:hover {
+         background: hsl(0, 80%, 86%);
+         box-shadow: 0px 10px 20px 3px hsla(0, 36%, 70%, 100%);
+      }
+   }
+
+   &__alert {
+      display: none;
+      text-align: left;
+      padding: 0 2.5rem;
+      font-size: 0.875rem;
+      color: rgb(223, 37, 37);
    }
 }

@@ -18,6 +18,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   font-family: "Josefin Sans", sans-serif;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 62.4375rem) {
@@ -102,6 +103,11 @@ body {
   margin-bottom: 1.875rem;
   color: #413a3a;
 }
+@media screen and (min-width: 37.5em) {
+  .card__title {
+    padding: 0 3rem;
+  }
+}
 @media screen and (min-width: 62.5em) {
   .card__title {
     margin-bottom: 2.5rem;
@@ -126,22 +132,51 @@ body {
     margin-bottom: 3rem;
     padding: 0;
     font-size: 1rem;
-    max-width: 70%;
+    max-width: 80%;
   }
 }
 .card__form {
   position: relative;
-  width: 80%;
-  max-width: 25rem;
+  max-width: 80%;
   margin: 0 auto;
+}
+.card__form.active .card__alert {
+  display: block;
+}
+.card__form.active::after {
+  display: block;
+}
+@media screen and (min-width: 37.5em) {
+  .card__form {
+    height: 3.5rem;
+    max-width: 27.5rem;
+  }
 }
 @media screen and (min-width: 62.5em) {
   .card__form {
-    max-width: 28.125em;
     margin: 0;
   }
 }
-.card__form > input {
+.card__form::after {
+  display: none;
+  content: "";
+  background-image: url("../../images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 75%;
+  transform: translateX(-75%);
+  z-index: 100;
+}
+@media screen and (min-width: 37.5em) {
+  .card__form::after {
+    top: 0.25rem;
+  }
+}
+.card__input {
   width: 100%;
   background: transparent;
   height: 3rem;
@@ -150,36 +185,48 @@ body {
   border: 1px solid rgba(206, 151, 151, 0.5);
   color: #ce9797;
   font-family: "Josefin Sans", sans-serif;
+  margin-bottom: 0.625rem;
 }
-.card__form > input:focus {
-  outline: thin solid #ce9797;
+@media screen and (min-width: 37.5em) {
+  .card__input {
+    height: 3.5rem;
+    font-size: 1rem;
+  }
 }
-.card__form::after {
-  content: "";
-  background-image: url("../images/icon-error.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 50px;
-  height: 50px;
-  position: absolute;
+.card__input:focus {
+  color: black;
+  font-weight: 600;
+  outline: 2px solid #df2525;
+  outline-offset: -2px;
 }
 .card__submit {
-  background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
-  height: 3rem;
-  width: 5.5rem;
   position: absolute;
-  background-repeat: no-repeat;
-  border-radius: 30px;
-  top: 0;
   right: 0;
+  background: #ee8c8c;
+  height: 3rem;
+  width: 4rem;
+  border-radius: 30px;
   border: 0;
   box-shadow: 0px 10px 20px 0px rgba(206, 151, 151, 0.6);
   cursor: pointer;
   transition: all 0.3s;
 }
+@media screen and (min-width: 37.5em) {
+  .card__submit {
+    height: 3.5rem;
+    width: 5.5rem;
+  }
+}
 .card__submit:hover {
-  opacity: 0.6;
-  box-shadow: 0px 10px 20px 5px #ce9797;
+  background: #f8bfbf;
+  box-shadow: 0px 10px 20px 3px #ce9797;
+}
+.card__alert {
+  display: none;
+  text-align: left;
+  padding: 0 2.5rem;
+  font-size: 0.875rem;
+  color: #df2525;
 }
 
 /*# sourceMappingURL=style.css.map */

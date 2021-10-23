@@ -209,7 +209,7 @@ body {
   border: 0;
   box-shadow: 0px 10px 20px 0px rgba(206, 151, 151, 0.6);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 @media screen and (min-width: 37.5em) {
   .card__submit {
@@ -220,6 +220,9 @@ body {
 .card__submit:hover {
   background: #f8bfbf;
   box-shadow: 0px 10px 20px 3px #ce9797;
+}
+.card__submit:focus {
+  outline: 2px solid #df2525;
 }
 .card__alert {
   display: none;

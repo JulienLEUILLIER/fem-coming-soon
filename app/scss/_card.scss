@@ -181,7 +181,7 @@
       border: 0;
       box-shadow: 0px 10px 20px 0px hsla(0, 36%, 70%, 60%);
       cursor: pointer;
-      transition: all 0.3s;
+      transition: background 0.3s, box-shadow 0.3s;
 
       @include breakpoint-up(medium) {
          height: 3.5rem;
@@ -191,6 +191,10 @@
       &:hover {
          background: hsl(0, 80%, 86%);
          box-shadow: 0px 10px 20px 3px hsla(0, 36%, 70%, 100%);
+      }
+
+      &:focus {
+         outline: 2px solid rgb(223, 37, 37);
       }
    }
 

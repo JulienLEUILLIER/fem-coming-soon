@@ -4,7 +4,7 @@ const formElement = document.querySelector('.card__form');
 
 submitBtn.addEventListener('click', (event) => {
    event.preventDefault();
-   if (inputField.value === '') {
+   if (inputField.value === '' || !inputField.value.match(/\S+@\S+\.\S+/)) {
       formElement.classList.add('active');
    }
    const timer = setInterval(() => {
